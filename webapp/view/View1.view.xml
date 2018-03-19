@@ -1,0 +1,81 @@
+<mvc:View controllerName="stock_take_fiori.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<!--<Text id="text_id" text="{textModel>/text}"></Text>-->
+					<fb:FilterBar id="filterBar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false">
+						
+					
+						<fb:filterItems>
+							<fb:FilterItem name="A" label="Search">
+								<fb:control>
+									<SearchField liveChange="liveSearch"></SearchField>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="B" label="Field_1" labelTooltip="ToolTip Example">
+								<fb:control>
+									<Input type="Text" showSuggestion="true" showValueHelp="true"/>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="c" label="Field_2">
+								<fb:control>
+									<Select id="age_id" forceSelection="false" selectedKey="{ageModel>/0/index}" items="{path:'ageModel>/'}" change="onSelectChange">
+										<core:Item key="{ageModel>index}" text="{ageModel>age}"></core:Item>
+									</Select>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+					<Table id="items_table" items="{path:'tableModel>/'}" >
+					<!--	<headerToolbar>-->
+							<Toolbar>
+								
+							
+							<Title text="Options" level="H2"></Title>
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button text="Display"></Button>
+							<Button text="Delete"></Button>
+							<Button icon="sap-icon://add"></Button>
+							<Button icon="sap-icon://action-settings"></Button>
+							</Toolbar>
+						<!--</headerToolbar>-->
+						<columns>
+							<Column width=".2em" minScreenWidth="Tablet">
+								<Text text=""></Text>
+							</Column>
+							<Column width="12em">
+								<Text text="{i18n>field_1}"></Text>
+							</Column>
+							<Column width="12em">
+								<Text text="{i18n>field_2}"></Text>
+							</Column>
+							<Column width="12em">
+								<Text text="{i18n>field_3}"></Text>
+							</Column>
+								<Column width="12em">
+								<Text text="{i18n>field_4}"></Text>
+							</Column>
+								<Column width="12em">
+								<Text text="{i18n>field_5}"></Text>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem press="tableClick" type="Navigation">
+								<cells>
+									<core:Icon src="sap-icon://circle-task" color="#031E48" class="tableIcon"></core:Icon>
+									<ObjectIdentifier title="{tableModel>name}"></ObjectIdentifier>
+									<ObjectIdentifier title="{tableModel>age}"></ObjectIdentifier>
+									<ObjectIdentifier title="{tableModel>mail}"></ObjectIdentifier>
+									<ObjectIdentifier title="{tableModel>tel}"></ObjectIdentifier>
+									<ObjectIdentifier title="{tableModel>sex}"></ObjectIdentifier>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
